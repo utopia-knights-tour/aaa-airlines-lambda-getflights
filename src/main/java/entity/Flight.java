@@ -1,5 +1,6 @@
 package entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -12,7 +13,7 @@ public class Flight {
 	private LocalDate arrivalDate;
 	private LocalTime arrivalTime;
 	private Integer seatsAvailable;
-	private Double cost;
+	private BigDecimal cost;
 
 	public Long getId() {
 		return id;
@@ -78,11 +79,11 @@ public class Flight {
 		this.seatsAvailable = seatsAvailable;
 	}
 
-	public Double getCost() {
+	public BigDecimal getCost() {
 		return cost;
 	}
 
-	public void setCost(Double cost) {
+	public void setCost(BigDecimal cost) {
 		this.cost = cost;
 	}
 }

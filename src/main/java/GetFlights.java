@@ -53,7 +53,7 @@ public class GetFlights implements RequestHandler<ApiGatewayRequest, ApiGatewayP
 				flight.setArrivalDate(rs.getDate("arrivalDate").toLocalDate());
 				flight.setArrivalTime(rs.getTime("arrivalTime").toLocalTime());
 				flight.setSeatsAvailable(rs.getInt("seatsAvailable"));
-				flight.setCost(rs.getDouble("cost"));
+				flight.setCost(rs.getBigDecimal("cost"));
 				flights.add(flight);
 			}
 		} catch (SQLException e) {
