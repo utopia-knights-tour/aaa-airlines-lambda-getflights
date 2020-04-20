@@ -21,14 +21,13 @@ public class ConnectUtil {
 		return instance;
 	}
 
-	private final String url = "jdbc:mysql://uthopia.c6cfods61mpr.us-east-1.rds.amazonaws.com/uthopia";
-	private final String username = "admin";
-	private final String password = "admin123";
-
 	public Connection getConnection() throws SQLException {
-		Connection connection = null;
-		connection = DriverManager.getConnection(url, username, password);
-		connection.setAutoCommit(false);
-		return connection;
+		synchronized (this) {
+			Connection connection = null;
+			connection = DriverManager.getConnection(System.getenv("AAA_DATASOURCE_URL"),
+					System.getenv("AAA_DATASOURCE_USERNAME"), System.getenv("AAA_DATASOURCE_PASSWORD"));
+			connection.setAutoCommit(false);
+			return connection;
+		}
 	}
 }
