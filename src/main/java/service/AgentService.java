@@ -5,15 +5,15 @@ import java.sql.SQLException;
 import java.util.List;
 
 import dao.FlightDao;
+import datasource.HikariCPDataSource;
 import entity.Flight;
-import util.ConnectUtil;
 
 public class AgentService {
 
 	public List<Flight> getFlights() throws ClassNotFoundException, SQLException {
 		Connection connection = null;
 		try {
-			connection = ConnectUtil.getInstance().getConnection();
+			connection = HikariCPDataSource.getConnection();
 			return new FlightDao(connection).get();
 		} catch (SQLException e) {
 			throw e;
