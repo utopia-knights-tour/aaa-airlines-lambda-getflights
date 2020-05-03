@@ -7,7 +7,6 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 public class HikariCPDataSource {
-
 	private static HikariConfig config = new HikariConfig();
 	private static HikariDataSource ds;
 

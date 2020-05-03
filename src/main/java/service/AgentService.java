@@ -17,6 +17,8 @@ public class AgentService {
 			return new FlightDao(connection).get();
 		} catch (SQLException e) {
 			throw e;
+		} finally {
+			connection.close();
 		}
 	}
 }
